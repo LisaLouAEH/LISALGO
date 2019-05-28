@@ -1,0 +1,11 @@
+// traduction de l'algo de la consigne
+function ex_6_5(){ 
+    console.log("tu ma trouvé");
+    var N = [], i, k;
+    N[0] = 1;
+    for(var k = 1; k < 6; k++){
+        N[k] = N[k-1] + 2 ;
+        console.log("dans ce tour de boucle N[k] vaut: "+N[k]);
+    }
+    document.getElementById("result_6_5").innerHTML=N;
+}

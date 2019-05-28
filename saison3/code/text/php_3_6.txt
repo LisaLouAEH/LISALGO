@@ -1,0 +1,13 @@
+$age= $_POST["age"];
+error_log("age = " . $age);
+    if ($age >= 6 && $age <= 7) {
+        $sMessage= "il sera categorie 'poussin'";
+    }else if ($age >= 8 && $age <= 9) {
+        $sMessage = "Il sera categorie 'pupille'";
+    }else if ($age >= 10 && $age <= 11) {
+        $sMessage = "Il sera categorie 'minime' ";
+    }else if ($age >= 12) {
+        $sMessage = "Il sera categorie 'cadet' ";
+    }else{
+        $sMessage= "Votre enfant n'a pas l'age réglementaire pour notre centre";
+    }

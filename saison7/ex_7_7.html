@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LISALGO_SITE</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="../css/main.css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:300i,400,500,700,900" rel="stylesheet"> 
+        <!--script-->
+        <script type="text/javascript" src="../body/main.js"></script>
+        <script type="text/javascript" src="code/ex7.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </head> 
+<body>
+    <?php include("../body/header.php"); ?>
+    <div class="title">
+            <h3 class="display-3">Exercice 7.7 s7</h3>
+    </div>
+    <div id="theory">
+        <div class="exo_card jumbotron">
+            <div class="consigne">
+                <p class="lead">Écrivez un algorithme qui fusionne deux tableaux (déjà existants) dans un troisième, qui devra être trié.
+                    Attention ! On présume que les deux tableaux de départ sont préalablement triés : il est donc irrationnel de faire
+                    une simple concaténation des deux tableaux de départ, puis d'opérer un tri : comme quand on se trouve face à deux
+                    tas de papiers déjà triés et qu'on veut les réunir, il existe une méthode bien plus économique (et donc, bien plus
+                    rationnelle...)</p>
+                <hr class="my-4">
+                <hr class="my-4">
+            </div>
+        </div>
+        <div class="exocard jumbotron">
+            <div class="algo">
+                <h3>PSEUDO CODE</h3>
+                <textarea>
+Debut
+var tableau1(3) TABLEAU 
+var tableau2(3) TABLEAU 
+var tFusion TABLEAU 
+    tableau1 = [1, 3, 5]
+    tableau2 = [2, 4, 6]
+    // si tableau 1 plus petit
+    SI(tableau1.taille < tableau2.TAILLE)
+        POUR i <-- 0 à tableau1.TAILLE i++
+            SI (tableau1[i] < tableau2[i])
+                tFusion <-- tableau1[i]
+            SINONSI (tableau1[i] == tableau2[i])
+                tFusion <-- tableau1[i]
+                tFusion <-- tableau2[i]
+            SINONSI (tableau1[i] > tableau2[i])
+                tFusion <-- tableau2[i]
+            FINSI
+        iSUIVANT
+        POUR i <-- tableau1.TAILLE à tableau2.TAILLE i++
+            tFusion <-- tableau2[i] 
+        ISUIVANT
+    // si tableau 1 plus grand 
+    SINON SI(tableau1.taille > tableau2.TAILLE)
+        POUR i <-- 0 à tableau2.TAILLE i++
+                SI (tableau1[i] < tableau2[i])
+                    tFusion <-- tableau1[i]
+                SINONSI (tableau1[i] == tableau2[i])
+                    tFusion <-- tableau1[i]
+                    tFusion <-- tableau2[i]
+                SINONSI (tableau1[i] > tableau2[i])
+                    tFusion <-- tableau2[i]
+                FINSI
+        iSUIVANT
+        POUR i <-- tableau2.TAILLE à tableau1.TAILLE i++
+            tFusion <-- tableau1[i] 
+        ISUIVANT
+    // si égalité de taille
+    SINON
+        POUR i <-- 0 à tableau2.TAILLE i++
+            SI (tableau1[i] < tableau2[i])
+                tFusion <-- tableau1[i]
+            SINONSI (tableau1[i] == tableau2[i])
+                tFusion <-- tableau1[i]
+                tFusion <-- tableau2[i]
+            SINONSI (tableau1[i] > tableau2[i])
+                tFusion <-- tableau2[i]
+            FINSI
+        iSUIVANT
+    FINSI
+    
+Fin
+                </textarea>
+            </div>
+        </div>
+    </div>
+    <div class="exo_card jumbotron code">
+        <div class="code_content">
+            <div class="test_bouton">
+                <button onClick="ex_7_7()">
+                    Test JS
+                </button>
+                <button onClick="ex_7_7_jquery()">
+                    Test Jquery
+                </button>
+                <button onClick="show_php_result()">
+                    Test php
+                </button>
+            </div>
+            <div class="test_content">
+                <div>
+                    <h3 onClick="showJs()">TRADUCTION JAVASCRIPT</h3>
+                    <div id="result_7_7">
+
+                        
+                    </div>
+                    <textarea id="code_js">
+<?php include("code/text/js_7_7.txt");?>
+                    </textarea>
+                </div>
+                <div>
+                    <h3 onClick="showJquery()">TRADUCTION JQUERY</h3>
+                    <div id="result_7_7_jquery">
+                        
+                    </div>
+                    <textarea id="code_Jquery">
+<?php include("code/text/jquery_7_7.txt");?>
+                    </textarea>
+                </div>
+                <div>
+                    <h3 onClick=showPhp()>TRADUCTION pHP</h3>
+                        <div id="result_php" class="has_to_be_seen">
+                                <form name="phpForm" id="phpForm" method="POST" action="ex_7_7.php">
+                                    <button type="submit" name="bouton" value="true">fusionner les tableaux en php</button>
+                                </form>
+                            
+                        </div>
+                        <p id="p_resultat_php">
+                            <!---->
+                            <?php if(isset($sMessage)){ echo $sMessage; }?>
+                        </p>
+                        <textarea id="code_php">
+<?php include("code/text/php_7_7.txt");?>
+                        </textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script></script>
+</body>
+</html>

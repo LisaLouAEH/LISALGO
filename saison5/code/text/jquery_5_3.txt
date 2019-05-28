@@ -1,0 +1,11 @@
+function ex_5_3_jquery(){
+    var nb = parseInt(window.prompt("saisir un nombre: "));
+    const follow_nb = nb + 10;
+    var tab=[];
+    while(nb < follow_nb){
+        nb++;
+        tab.push(nb+"<br>");
+    }
+    $("#result_5_3_jquery").html(tab);
+          
+}

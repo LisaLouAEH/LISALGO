@@ -1,0 +1,45 @@
+function ex_4_2(){
+    var heure = parseInt(window.prompt("Saisir une heure (ex: 12): "));
+    var minute = parseInt(window.prompt("Saisir les minutes (ex: 36): "));
+    if((heure < 23)&&(minute < 59)){
+        minute ++;
+    }else if((heure < 23)&&(minute == 59)){
+        minute = 0;
+        heure++;
+    }else if((heure == 23)&&(minute == 59)){
+        heure = 0;
+        minute = 0;
+    }else{
+        document.getElementById("result_4_2").innerHTML="erreur !";
+    }
+    if(heure < 10){
+        heure = "0"+heure;
+    }
+    if(minute < 10){
+        minute = "0"+minute;
+    }
+    document.getElementById("result_4_2").innerHTML="Dans une minute, il sera "+heure+":"+minute;
+}
+
+function ex_4_2_jquery(){
+    var heure = parseInt(window.prompt("Saisir une heure (ex: 12): "));
+    var minute = parseInt(window.prompt("Saisir les minutes (ex: 36): "));
+    if((heure < 23)&&(minute < 59)){
+        minute ++;
+    }else if((heure < 23)&&(minute == 59)){
+        minute = 0;
+        heure++;
+    }else if((heure == 23)&&(minute == 59)){
+        heure = 0;
+        minute = 0;
+    }else{
+        $("#result_4_2_jquery").html("erreur !");
+    }
+    if(heure < 10){
+        heure = "0"+heure;
+    }
+    if(minute < 10){
+        minute = "0"+minute;
+    }
+    $("#result_4_2_jquery").html("Dans une minute, il sera "+heure+":"+minute);
+}

@@ -1,0 +1,118 @@
+<!--permet de ne pas lancer le code php du formulaire tant que -->
+<!--l'utilisateur n'a pas saisie encore de données-->
+<?php 
+if(isset($_POST["tableau"])){
+    require "code/ex6_11.php";
+} 
+?>
+<!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LISALGO_SITE</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="../css/main.css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:300i,400,500,700,900" rel="stylesheet"> 
+        <!--script-->
+        <script type="text/javascript" src="../body/main.js"></script>
+        <script type="text/javascript" src="code/ex6.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </head> 
+<body>
+    <?php include("../body/header.php"); ?>
+    <div class="title">
+            <h3 class="display-3">Exercice 6.11 s6</h3>
+    </div>
+    <div id="theory">
+        <div class="exo_card jumbotron">
+            <div class="consigne">
+                <p class="lead">Toujours à partir de deux tableaux précédemment saisis, 
+                        écrivez un algorithme qui calcule le « Toon » des deux
+                        tableaux. 
+                        Pour calculer le « Toon », il faut multiplier chaque élément 
+                        du tableau 1 par chaque élément du tableau 2,
+                        et additionner le tout. Par exemple si l'on a :</p>
+                        <ul>Tableau 1 :
+                            <li>4 8 7 12</li>
+                        </ul>
+                        <ul>Tableau 2 :
+                                <li>3 6</li>
+                        </ul>
+                        <ul>Le « Toon » sera :
+                                <li>3 * 4 + 3 * 8 + 3 * 7 + 3 * 12 + 6 * 4 + 6 * 8 + 6 * 7 + 6 * 12 = 279</li>
+                        </ul>
+                <hr class="my-4">
+                <hr class="my-4">
+            </div>
+        </div>
+        <div class="exocard jumbotron">
+            <div class="algo">
+                <h3>PSEUDO CODE</h3>
+                <textarea>
+Debut
+    
+Fin
+                </textarea>
+            </div>
+        </div>
+    </div>
+    <div class="exo_card jumbotron code">
+        <div class="code_content">
+            <div class="test_bouton">
+                <button onClick="ex_6_11()">
+                    Test JS
+                </button>
+                <button onClick="ex_6_11_jquery()">
+                    Test Jquery
+                </button>
+                <button onClick="show_php_result()">
+                    Test php
+                </button>
+            </div>
+            <div class="test_content">
+                <div>
+                    <h3 onClick="showJs()">TRADUCTION JAVASCRIPT</h3>
+                    <div id="result_6_11">
+
+                        
+                    </div>
+                    <textarea id="code_js">
+<?php include("code/text/js_6_11.txt");?>
+                    </textarea>
+                </div>
+                <div>
+                    <h3 onClick="showJquery()">TRADUCTION JQUERY</h3>
+                    <div id="result_6_11_jquery">
+                        
+                    </div>
+                    <textarea id="code_Jquery">
+<?php include("code/text/jquery_6_11.txt");?>
+                    </textarea>
+                </div>
+                <div>
+                    <h3 onClick=showPhp()>TRADUCTION pHP</h3>
+                        <div id="result_php" class="has_to_be_seen">
+                            <form name="phpForm" id="phpForm" method="POST" action="ex_6_11.php">
+                                <p>Tableau 1 : [2, 2, 2, 2]</p>
+                                <p>Tableau 2 : [1, 3, 5]</p>
+                                <input type=hidden name="tableau" value="vide">
+                                <button type="submit">Calculer Toon</button>
+                            </form>
+                            
+                        </div>
+                        <p id="p_resultat_php">
+                                <!---->
+                                <?php if (isset($sMessage))  {  echo $sMessage;  } ?>
+                        </p>
+                        <textarea id="code_php">
+<?php include("code/text/php_6_11.txt");?>
+                        </textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script></script>
+</body>
+</html>

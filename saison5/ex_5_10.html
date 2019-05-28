@@ -1,0 +1,160 @@
+<!--permet de ne pas lancer le code php du formulaire tant que l'utilisateur n'a pas saisie encore de données-->
+<?php if(isset($_POST["nb"])){
+    require "code/ex5_10.php";
+} 
+?>
+<!--||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LISALGO_SITE</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="../css/main.css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:300i,400,500,700,900" rel="stylesheet"> 
+        <!--script-->
+        <script type="text/javascript" src="../body/main.js"></script>
+        <script type="text/javascript" src="code/ex5_10.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </head> 
+<body>
+    <?php include("../body/header.php"); ?>
+    <div class="title">
+            <h3 class="display-3">Exercice 5.10 s5</h3>
+    </div>
+    <div id="theory">
+        <div class="exo_card jumbotron">
+            <div class="consigne">
+                <p class="lead">Lire la suite des prix (en euros entiers et terminée par zéro) des achats d’un client. Calculer la somme qu’il doit, lire la
+                    somme qu’il paye, et simuler la remise de la monnaie en affichant les textes "10 Euros", "5 Euros" et "1 Euro" autant
+                    de fois qu’il y a de coupures de chaque sorte à rendre.</p>
+                    <span>La saisie des nombres s’arrête lorsque l’utilisateur entre un zéro.</span>
+                <hr class="my-4">
+                <hr class="my-4">
+            </div>
+        </div>
+        <div class="exocard jumbotron">
+            <div class="algo">
+                <h3>PSEUDO CODE</h3>
+                <textarea>
+START
+//Pour PHP
+    var iNombreDix, iNombreCinq, iNombrePiece, iRest
+    iPrix, iPanier
+
+    // composition du panier a chaque input
+    Ecrire "Saisir prix d'un produit"
+    Lire --> iPrix
+        si(iPrix == "v"){
+            Ecrire "Vous nous devez"+iPanier+"euros."
+        }sinon{
+            iPanier = iPanier + iPrix
+            Return "iPanier"
+        }
+
+    // traitement de la monaie
+    Ecrire "Saisir règlement sans décimales"
+    Lire --> iReglement
+    iRest = iReglement - iPanier 
+        Si (iRest >= 1){
+            // Combien de billets de 10
+            Si(iRest%10 > 0){
+                iNombreDix = (iRest - (iRest%10)) / 10
+                iRest = iRest%10
+            }Sinon{
+                iNombreDix = iRest / 10
+                iRest = 0
+            }
+            // Combien de billets de 5 avec le reste
+            Si(iRest%5 > 0){
+                iNombreCinq = (iRest - (iRest%10)) / 5
+                iRest = iRest%5
+            }Sinon{
+                iNombreCinq = iRest / 5
+                iRest = 0
+            }
+            // Si il ya encore du reste ce sera des pieces 
+            $iNombrePiece = $iRest;
+        }
+    Ecrire "Nous vous devons"+iNombreDix+"billets de 10"
+    +iNombreCinq+"billets de 5"+iNombrePiece+"pieces de 1 euros."
+    Rappel page ex_5_8.html
+FIN
+                </textarea>
+            </div>
+        </div>
+    </div>
+    <div class="exo_card jumbotron code">
+        <div class="code_content">
+            <div class="test_bouton">
+                <button onClick="ex_5_10()">
+                    Test JS
+                </button>
+                <button onClick="ex_5_10_jquery()">
+                    Test Jquery
+                </button>
+                <button onClick="show_php_result()">
+                    Test php
+                </button>
+            </div>
+            <div class="test_content">
+                <div>
+                    <h3 onClick="showJs()">TRADUCTION JAVASCRIPT</h3>
+                    <div id="result_5_10">
+                        
+                    </div>
+                    <textarea id="code_js">
+<?php include("code/text/js_5_10.txt");?>
+                    </textarea>
+                </div>
+                <div>
+                    <h3 onClick="showJquery()">TRADUCTION JQUERY</h3>
+                    <div id="result_5_10_jquery">
+                        
+                    </div>
+                    <textarea id="code_Jquery">
+<?php include("code/text/jquery_5_10.txt");?>
+                    </textarea>
+                </div>
+                <div>
+                    <h3 onClick=showPhp()>TRADUCTION pHP</h3>
+                        <div id="result_php" class="has_to_be_seen">
+                                <form name="phpForm" id="phpForm" method="POST" action="ex_5_10.php">
+                                    <p> 
+                                        <input type="text" name="iPrix" id="iPrix" 
+                                        placeholder="Saisir le prix d'un produit">
+                                        <input type="hidden" name="iPanier" id="iPanier" 
+                                        value="<?php if(isset($iPanier)){ echo $iPanier; }else{echo '0'; }?>">
+                                    </p>
+                                    
+                                    <p>
+                                        <button type="submit" name="bouton">ajouter au panier</button>
+                                    </p>
+                            </form>
+                            
+                        </div>
+                        <p id="p_resultat_php">
+                            <p>Votre facture: </p>
+                            <?php if (isset($sFacture)){ echo $sFacture; }?>
+                            <form name="phpForm" id="phpForm" method="POST" action="ex_5_10.php">
+                                    <p>
+                                        saisir un nombre pour regler: 
+                                        <input type="text" name="iReglement" id="iReglement" placeholder="100">
+                                        <input type="hidden" name="iPanier" id="iPanier" 
+                                        value="<?php if(isset($iPanier)){ echo $iPanier; }else{echo '0'; }?>">
+                                    </p>
+                                    <p><button type="submit" name="valider">valider le paiement</button></p>
+                            </form>
+                            <?php if (isset($sMonnaie))  {  echo $sMonnaie;  } ?>
+                        </p>
+                        <textarea id="code_php">
+<?php include("code/text/php_5_9.txt");?>
+                        </textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script></script>
+</body>
+</html>

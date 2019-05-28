@@ -1,0 +1,8 @@
+<?php
+    $nb = $_POST["nb"];
+    $product = 1;
+    for ($i = 1; $i <= $nb; $i++){
+        $product = $product * $i;
+    }
+    $sMessage = $product;
+?>

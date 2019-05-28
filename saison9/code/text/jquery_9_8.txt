@@ -1,0 +1,36 @@
+function getRandomIntInclusive(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min +1)) + min;
+}
+function getRandomFloatInclusive(min, max){
+    return (Math.random() * (max - min) + min).toFixed(2);
+}
+function ex_9_8_jquery(){
+    var mode = getRandomIntInclusive(1, 6);
+    console.log("mode = "+mode);
+    switch(mode){
+        case 1:
+            var Glup = getRandomIntInclusive(0, 2);
+            break;
+        case 2:
+            var Glup = getRandomIntInclusive(-1, 1);
+            break;
+        case 3:
+            var Glup = getRandomFloatInclusive(1.35, 1.65);
+            break;
+        case 4:
+            var Glup = getRandomIntInclusive(1, 6);
+            break;
+        case 5:
+            var Glup = getRandomFloatInclusive(-10.5, 6.5);
+            break;
+        case 6: 
+            var Glup = getRandomIntInclusive(2, 12);
+            break;
+        default: 
+            console.log("une erreur punaise");
+    }
+    console.log("glup = "+Glup);
+    $("#result_9_8_jquery").html("la valeur de votre glup = "+Glup);
+}

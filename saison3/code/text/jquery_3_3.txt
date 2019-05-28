@@ -1,0 +1,10 @@
+function ex_3_3_jquery(){
+    var name_1 = window.prompt("Saisir un prénom: ");
+    var name_2 = window.prompt("Saisir un deuxieme prénom: ");
+    var name_3 = window.prompt("Saisir un troisieme prénom: ");
+    if((name_1 < name_2)&&(name_2 < name_3)){
+        $("#result_3_3_jquery").html("Tout cela est classé par ordre alphabetique. ");
+    }else{
+        $("#result_3_3_jquery").html("Tout cela n'est pas rangé par ordre alphabétique! ");
+    }
+}

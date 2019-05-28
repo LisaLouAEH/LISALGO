@@ -1,0 +1,5 @@
+$tab_note = array();
+for($i = 1; $i <= 9; $i++){
+    array_push($tab_note, $_POST["note".$i]);
+}
+$sMessage = implode(" ", $tab_note);

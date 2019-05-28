@@ -1,0 +1,162 @@
+<!--permet de ne pas lancer le code php du formulaire tant que l'utilisateur n'a pas saisie encore de données-->
+<?php if(isset($_POST["fidelite"])){
+    require "code/ex4_7.php";
+} 
+?>
+<!--||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LISALGO_SITE</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="../css/main.css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:300i,400,500,700,900" rel="stylesheet"> 
+        <!--script-->
+        <script type="text/javascript" src="../body/main.js"></script>
+        <script type="text/javascript" src="code/ex4_7.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </head> 
+<body>
+    <?php include("../body/header.php"); ?>
+    <div class="title">
+            <h3 class="display-3">Exercice 4.7 s4</h3>
+    </div>
+    <div id="theory">
+        <div class="exo_card jumbotron">
+            <div class="consigne">
+                <p class="lead">Une compagnie d'assurance automobile propose à ses clients quatre familles de tarifs identifiables par une couleur,
+                    du moins au plus onéreux : tarifs bleu, vert, orange et rouge. Le tarif dépend de la situation du conducteur :</p>
+                <ul>
+                    <li>un conducteur de moins de 25 ans et titulaire du permis depuis moins de deux ans, se voit attribuer
+                        le tarif rouge, si toutefois il n'a jamais été responsable d'accident. Sinon, la compagnie refuse de l'assurer.</li>
+                    <li>un conducteur de moins de 25 ans et titulaire du permis depuis plus de deux ans, ou de plus de 25
+                        ans mais titulaire du permis depuis moins de deux ans a le droit au tarif orange s'il n'a jamais provoqué
+                        d'accident, au tarif rouge pour un accident, sinon il est refusé.</li>
+                    <li>un conducteur de plus de 25 ans titulaire du permis depuis plus de deux ans bénéficie du tarif vert s'il
+                        n'est à l'origine d'aucun accident et du tarif orange pour un accident, du tarif rouge pour deux accidents, et
+                        refusé au-delà</li>
+                    <li>De plus, pour encourager la fidélité des clients acceptés, la compagnie propose un contrat de la
+                        couleur immédiatement la plus avantageuse s'il est entré dans la maison depuis plus de cinq ans. Ainsi, s'il
+                        satisfait à cette exigence, un client normalement "vert" devient "bleu", un client normalement "orange"
+                        devient "vert", et le "rouge" devient orange.</li>
+                </ul> 
+                <p>Ecrire l'algorithme permettant de saisir les données nécessaires (sans contrôle de saisie) et de traiter ce problème.
+                    Avant de se lancer à corps perdu dans cet exercice, on pourra réfléchir un peu et s'apercevoir qu'il est plus simple
+                    qu'il n'en a l'air (cela s'appelle faire une analyse !)</p>    
+                <hr class="my-4">
+                <hr class="my-4">
+            </div>
+        </div>
+        <div class="exocard jumbotron">
+            <div class="algo">
+                <h3>PSEUDO CODE</h3>
+                <textarea>
+DEBUT
+VAR USER_AGE, USER_PERMIS, USER_ACC_NB, USER_FIDELITY
+VAR USER_LEVEL= 0
+IF USER_AGE >= 25
+    USER_LEVEL++
+ELSEIF USER_PERMIS >= 2
+    USER_LEVEL++
+ELSEIF USER_ACC_NB == 0
+    USER_LEVEL++
+ELSEIF USER_FIDELITY >= 5
+    USER_LEVEL++
+ENDIF
+
+SWITCH(USER_LEVEL)
+    CASE 0:
+    CASE 1:
+        ECRIRE "formule rouge"
+        BREACK
+    CASE 2
+        ECRIRE "formule orange"
+        BREACK
+    CASE 3
+        ECRIRE "formule verte"
+        BREACK
+    CASE 4
+        ECRIRE "formule bleu"
+        BREACK
+    DEFAULT
+        ECRIRE "Vous n'êtes éligible à aucune offre."
+ENDSWITCH
+FIN
+                </textarea>
+            </div>
+        </div>
+    </div>
+    <div class="exo_card jumbotron code">
+        <div class="code_content">
+            <div class="test_bouton">
+                <button onClick="ex_4_7()">
+                    Test JS
+                </button>
+                <button onClick="ex_4_7_jquery()">
+                    Test Jquery
+                </button>
+                <button onClick="show_php_result()">
+                    Test php
+                </button>
+            </div>
+            <div class="test_content">
+                <div>
+                    <h3 onClick="showJs()">TRADUCTION JAVASCRIPT</h3>
+                    <div id="result_4_7">
+                        
+                    </div>
+                    <textarea id="code_js">
+<?php include("code/text/js_4_7.txt");?>
+                    </textarea>
+                </div>
+                <div>
+                    <h3 onClick="showJquery()">TRADUCTION JQUERY</h3>
+                    <div id="result_4_7_jquery">
+                        
+                    </div>
+                    <textarea id="code_Jquery">
+<?php include("code/text/jquery_4_7.txt");?>
+                    </textarea>
+                </div>
+                <div>
+                    <h3 onClick=showPhp()>TRADUCTION pHP</h3>
+                        <div id="result_php">
+                            <form name="phpForm" id="phpForm" method="POST" action="ex_4_7.php">
+                                    <p>
+                                        saisir votre age : 
+                                        <input type="text" name="age" id="age" placeholder="25">
+                                    </p>
+                                    <p>
+                                        depuis combien d'années avez vous le permis : 
+                                        <input type="text" name="permis" id="permis" placeholder="10">
+                                    </p>
+                                    <p>
+                                        combien d'accidents avez vous eu : 
+                                        <input type="text" name="accidents" id="accidents" placeholder="0">
+                                    </p>
+                                    <p>
+                                        Depuis combien d'années êtes vous assuré chez nous : 
+                                        <input type="text" name="fidelite" id="fidelite" placeholder="5">
+                                    </p>
+                                    <p>
+                                        <button type="submit">RUN</button>
+                                    </p>
+                            </form>
+                            
+                        </div>
+                        <p id="p_resultat_php">
+                            
+                                <?php if (isset($sMessage))  {  echo $sMessage;  } ?>
+                        </p>
+                        <textarea id="code_php">
+<?php include("code/text/php_4_7.txt");?>
+                        </textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script></script>
+</body>
+</html>

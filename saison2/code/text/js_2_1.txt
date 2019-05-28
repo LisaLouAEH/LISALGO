@@ -1,0 +1,5 @@
+function ex_2_1(){
+    var Val = 231;
+    var Double = Val * 2;
+    document.getElementById("result_1_2").innerHTML = 'La valeur de Val est '+Val + '<br>' + 'La valeur de Double est '+Double;
+}

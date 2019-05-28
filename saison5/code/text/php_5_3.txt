@@ -1,0 +1,10 @@
+$nb = $_POST["nb"];
+$follow_nb = $nb + 10;
+$tab = array("Les 10 prochains nombres aprés ".$nb.":<br>");
+while($nb < $follow_nb){
+    $nb++;
+    $tab[] = $nb."<br>";
+}
+// "implode(separateur, $nom_tableau)" converti 
+// le tableau en chaine de charactère pour l'affichage
+$sMessage = implode("\n", $tab);

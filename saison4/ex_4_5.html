@@ -1,0 +1,124 @@
+<!--permet de ne pas lancer le code php du formulaire tant que l'utilisateur n'a pas saisie encore de données-->
+<?php if(isset($_POST["genre"])){
+    require "code/ex4_5.php";
+} 
+?>
+<!--||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LISALGO_SITE</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="../css/main.css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:300i,400,500,700,900" rel="stylesheet"> 
+        <!--script-->
+        <script type="text/javascript" src="../body/main.js"></script>
+        <script type="text/javascript" src="code/ex4_5.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </head> 
+<body>
+    <?php include("../body/header.php"); ?>
+    <div class="title">
+            <h3 class="display-3">Exercice 4.5 s4</h3>
+    </div>
+    <div id="theory">
+        <div class="exo_card jumbotron">
+            <div class="consigne">
+                <p class="lead">Les habitants de Toon’sCity paient l’impôt selon les règles suivantes :</p>
+                <ul>
+                    <li>les hommes de plus de 20 ans paient l’impôt</li>
+                    <li>les femmes paient l’impôt si elles ont entre 18 et 35 ans</li>
+                    <li>les autres ne paient pas d’impôt</li>
+                </ul> 
+                <p>Le programme demandera donc l’âge et le sexe du Toon, 
+                    et se prononcera donc ensuite sur le fait que l’habitant est imposable ou non.</p>    
+                <hr class="my-4">
+                <hr class="my-4">
+            </div>
+        </div>
+        <div class="exocard jumbotron">
+            <div class="algo">
+                <h3>PSEUDO CODE</h3>
+                <textarea>
+DEBUT
+VAR AGE GENRE
+ECRIRE "saisir l\'age du toon: "
+LIRE --> AGE
+ECRIRE "saisir genre du toon: "
+LIRE --> GENRE
+SI ((GENRE = "hommes") && (AGE > 20)) || (GENRE = "femmes") && ((AGE >= 18) && (AGE <= 35))
+    ECRIRE "Ce toon est imposable à Toon\'s city"
+SINON 
+    ECRIRE "ce toon n'est pas imposable à Toon\'s city"
+   
+FIN
+                </textarea>
+            </div>
+        </div>
+    </div>
+    <div class="exo_card jumbotron code">
+        <div class="code_content">
+            <div class="test_bouton">
+                <button onClick="ex_4_5()">
+                    Test JS
+                </button>
+                <button onClick="ex_4_5_jquery()">
+                    Test Jquery
+                </button>
+                <button onClick="show_php_result()">
+                    Test php
+                </button>
+            </div>
+            <div class="test_content">
+                <div>
+                    <h3 onClick="showJs()">TRADUCTION JAVASCRIPT</h3>
+                    <div id="result_4_5">
+                        
+                    </div>
+                    <textarea id="code_js">
+<?php include("code/text/js_4_5.txt");?>
+                    </textarea>
+                </div>
+                <div>
+                    <h3 onClick="showJquery()">TRADUCTION JQUERY</h3>
+                    <div id="result_4_5_jquery">
+                        
+                    </div>
+                    <textarea id="code_Jquery">
+<?php include("code/text/jquery_4_5.txt");?>
+                    </textarea>
+                </div>
+                <div>
+                    <h3 onClick=showPhp()>TRADUCTION pHP</h3>
+                        <div id="result_php">
+                            <form name="phpForm" id="phpForm" method="POST" action="ex_4_5.php">
+                                    <p>
+                                        saisir l'age du toon:
+                                        <input type="text" name="age" id="age" placeholder="25">
+                                    </p>
+                                    <p>
+                                        saisir genre du toon::
+                                        <input type="text" name="genre" id="genre" placeholder="'h' ou 'f'">
+                                    </p>
+                                    <p>
+                                        <button type="submit">RUN</button>
+                                    </p>
+                            </form>
+                            
+                        </div>
+                        <p id="p_resultat_php">
+                            
+                                <?php if (isset($sMessage))  {  echo $sMessage;  } ?>
+                        </p>
+                        <textarea id="code_php">
+<?php include("code/text/php_4_5.txt");?>
+                        </textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script></script>
+</body>
+</html>

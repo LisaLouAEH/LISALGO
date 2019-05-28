@@ -1,0 +1,8 @@
+function ex_6_1_jquery(){
+    var tab=[];
+    for(i=0; i< 7; i++){
+        tab.push(0);
+    }
+    $("#result_6_1_jquery").html(tab);
+          
+}

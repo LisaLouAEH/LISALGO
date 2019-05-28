@@ -1,0 +1,13 @@
+<?php
+    $nb = $_POST["nb"];
+    $pos = $_POST["pos"];
+    $multiplicator = 1;
+    $follow_nb = $nb + 10;
+    $tab = array($nb." x ".$multiplicator." = ".($nb * $multiplicator)."<br>");
+    for ($i = 1; $i < 10; $i++){
+        $multiplicator++;
+        $tab[] = $nb." x ".$multiplicator." = ".($nb * $multiplicator)."<br>";
+    }
+    // converti le tableau en chaine de char
+    $sMessage = implode("\n", $tab);
+?>

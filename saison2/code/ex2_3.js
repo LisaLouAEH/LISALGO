@@ -1,0 +1,17 @@
+function ex_2_3(){
+    let product_ht = window.prompt("Saisir le prix de votre produit hors-taxe: ");
+    let product_nb = window.prompt("Combien d'exemplaire de ce produit souhaitez vous ? ");
+    let tva_percent = window.prompt("Saisir le taux de TVA en pourcentage: ");
+    tva_percent = tva_percent/100;
+    let TOTAL = product_nb * product_ht * (1 + tva_percent);
+    document.getElementById("result_2_3").innerHTML = "Le total de votre facture s'élève à "+TOTAL+"euros, pour "+product_nb+" articles.";
+}
+
+function ex_2_3_jquery(){
+    let product_ht = window.prompt("Saisir le prix de votre produit hors-taxe: ");
+    let product_nb = window.prompt("Combien d'exemplaire de ce produit souhaitez vous ? ");
+    let tva_percent = window.prompt("Saisir le taux de TVA en pourcentage: ");
+    tva_percent = tva_percent/100;
+    let TOTAL = product_nb * product_ht * (1 + tva_percent);
+    $("#result_2_3_jquery").html("Le total de votre facture s'élève à "+TOTAL+"euros, pour "+product_nb+" articles.");
+}

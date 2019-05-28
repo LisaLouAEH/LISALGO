@@ -1,0 +1,108 @@
+function ex_4_7(){
+    var age = parseInt(window.prompt("saisir votre age : "));
+    var permis = parseInt(window.prompt("saisir le nombre d'année de permis : "));
+    var accidents = parseInt(window.prompt("saisir le nombre d'accidents que vous avez eu : "));
+    var fidelite = parseInt(window.prompt("saisir le nombre d'année que vous êtes assuré chez nous : "));
+    var level = 0;
+    if(((age < 25 && accidents > 0) || ((age > 25 && permis < 2) && (accidents > 0)) || accidents > 2)){
+        level = 'no';
+        console.log('level = '+level);
+    }
+    if(age >= 25){
+        level++;
+        console.log('level = '+level);
+    }
+    if(permis >= 2){
+        level++;
+        console.log('level = '+level);
+    }
+    if(accidents == 0){
+        level++;
+        console.log('level = '+level);
+    }
+    if(fidelite >= 5){
+        level++;
+        console.log('level = '+level);
+    }
+
+    switch(level){
+        case 'no':
+            document.getElementById("result_4_7").innerHTML="vous n'êtes éligible à aucune offre";
+            console.log(' case "no" level = '+level);
+            break;
+        case 0:
+        case 1:
+            document.getElementById("result_4_7").innerHTML="Nous vous proposons la formule rouge! \n On va vous plumer!";
+            console.log(' case 0 ou 1 level = '+level);
+            break;
+        case 2:
+            document.getElementById("result_4_7").innerHTML="Nous vous proposons la formule orange! \n Ca va vous couter cher mais pas trop..";
+            console.log(' case 2 level = '+level);
+            break;
+        case 3:
+            document.getElementById("result_4_7").innerHTML="Félicitation! \n vous allez faire des économies avec la formule verte!";
+            console.log(' case 3 level = '+level);
+            break;
+        case 4:
+            document.getElementById("result_4_7").innerHTML="Félicitation! Formule bleu!\n L'assurance gratuite !";
+            console.log(' case 4 level = '+level);
+            break;
+        default:
+            console.log('heu... il y a un soucis, le switch ne marche pas si je maffiche. voici la valeur de level: '+level);
+    }
+    
+}
+
+function ex_4_7_jquery(){
+    var age = parseInt(window.prompt("saisir votre age : "));
+    var permis = parseInt(window.prompt("saisir le nombre d'année de permis : "));
+    var accidents = parseInt(window.prompt("saisir le nombre d'accidents que vous avez eu : "));
+    var fidelite = parseInt(window.prompt("saisir le nombre d'année que vous êtes assuré chez nous : "));
+    var level = 0;
+    if(age >= 25){
+        level++;
+        console.log('level = '+level);
+    };
+    if(permis >= 2){
+        level++;
+        console.log('level = '+level);
+    };
+    if(accidents == 0){
+        level++;
+        console.log('level = '+level);
+    };
+    if(fidelite >= 5){
+        level++;
+        console.log('level = '+level);
+    };
+    if((age < 25 && accidents > 0) || ((age > 25 && permis < 2) && (accidents > 0)) || accidents > 2){
+        level = 'no';
+        console.log('level = '+level);
+    };
+
+    switch(level){
+        case 'no':
+            $("#result_4_7_jquery").html("vous n'êtes éligible à aucune offre");
+            console.log(' case "no" level = '+level);
+            break;
+        case 0:
+        case 1:
+        $("#result_4_7_jquery").html("Nous vous proposons la formule rouge! \n On va vous plumer!");
+            console.log(' case 0 ou 1 level = '+level);
+            break;
+        case 2:
+        $("#result_4_7_jquery").html("Nous vous proposons la formule orange! \n Ca va vous couter cher mais pas trop..");
+            console.log(' case 2 level = '+level);
+            break;
+        case 3:
+        $("#result_4_7_jquery").html("Félicitation! \n vous allez faire des économies avec la formule verte!");
+            console.log(' case 3 level = '+level);
+            break;
+        case 4:
+        $("#result_4_7_jquery").html("Félicitation! Formule bleu!\n L'assurance gratuite !");
+            console.log(' case 4 level = '+level);
+            break;
+        default:
+            console.log('heu... il y a un soucis, le switch ne marche pas si je maffiche. voici la valeur de level: '+level);
+    } 
+}

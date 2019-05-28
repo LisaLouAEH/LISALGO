@@ -1,0 +1,6 @@
+function ex_6_2_jquery(){
+    var a = "a ou A <br>", e = "e ou E <br>", i = "i ou I <br>", o = "o ou O <br>", u = "u ou U <br>", y = "y ou Y <br>";
+    var tab = [a, e, i, o, u, y];
+    document.getElementById("result_6_2").innerHTML=tab;
+    $("#result_6_2_jquery").html(tab);
+}

@@ -1,0 +1,9 @@
+function ex_6_3(){
+    var i = 0;
+    var tab=[];
+    while(i < 9){
+        tab.push(window.prompt("saisir une note: ") + "<br>");
+        i++;
+    }
+    document.getElementById("result_6_3").innerHTML=tab;
+}

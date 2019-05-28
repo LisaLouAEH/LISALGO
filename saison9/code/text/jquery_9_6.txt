@@ -1,0 +1,11 @@
+function ex_9_6_jquery(){
+    var saisie = window.prompt("Veuillez saisir une phrase a crypter: ");
+    var tStr = saisie.split("");
+    var message_crypte = "";
+        for(var i = 0; i < saisie.length; i++){
+            console.log(saisie.charAt(i)+" = "+ saisie.charCodeAt(i));
+            tStr[i] = saisie.charCodeAt(i) + 1;
+            message_crypte += String.fromCharCode(tStr[i]);
+        };
+    $("#result_9_6_jquery").html("votre saisie d'origine : <br>"+saisie+" <br> une fois crypté : <br>"+message_crypte);
+}

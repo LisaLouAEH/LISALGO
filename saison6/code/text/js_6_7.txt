@@ -1,0 +1,22 @@
+function ex_6_7(){
+    // stoquer les valeurs dans un tableau
+    var i = 0;
+    var tab=[];
+    while(i < 9){
+        tab.push(parseInt(window.prompt("saisir une note: ")));
+        i++;
+    }
+    // Stocker la somme des valeurs dans une variable
+    var somme = 0;
+    for(i = 0; i < 9; i++){
+        //verifie que les valeurs son numerique:
+        if(!isNaN(tab[i])){
+            somme = somme + tab[i];
+        }else{
+            somme = somme + 0;
+        }
+    }
+    // Diviser la somme par la taille du tableau
+    var moyenne = somme / 9;
+    document.getElementById("result_6_7").innerHTML="la moyenne de <br>"+tab+" <br>est de <br>"+moyenne;
+}

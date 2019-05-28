@@ -1,0 +1,12 @@
+<?php 
+    $TOTO = 1;
+    $TATA = "ok"; //pour tester la condition "&&" changer la valeur de TATA
+    $TUTU = $_POST["TUTU"];
+    if(($TUTU <= $TOTO + 4)&&($TATA != "ok")){
+        $TUTU = $TUTU - 1;
+        $sMessage= $TUTU;
+    }else{
+        $TUTU = $TUTU + 1;
+        $sMessage= $TUTU;
+    }
+?>

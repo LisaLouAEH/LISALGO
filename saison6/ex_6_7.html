@@ -1,0 +1,127 @@
+<!--permet de ne pas lancer le code php du formulaire tant que l'utilisateur n'a pas saisie encore de données-->
+
+<!--||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LISALGO_SITE</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="../css/main.css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:300i,400,500,700,900" rel="stylesheet"> 
+        <!--script-->
+        <script type="text/javascript" src="../body/main.js"></script>
+        <script type="text/javascript" src="code/ex6.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </head> 
+<body>
+    <?php include("../body/header.php"); ?>
+    <div class="title">
+            <h3 class="display-3">Exercice 6.7 s6</h3>
+    </div>
+    <div id="theory">
+        <div class="exo_card jumbotron">
+            <div class="consigne">
+                <p class="lead">Ecrivez la fin de l’algorithme 6.3 afin que le calcul de la moyenne des notes soit effectué et affiché à l’écran.</p>
+                <hr class="my-4">
+                <hr class="my-4">
+            </div>
+        </div>
+        <div class="exocard jumbotron">
+            <div class="algo">
+                <h3>PSEUDO CODE</h3>
+                <textarea>
+var i = 0, somme, moyenne en entier.
+tableau tab = []
+    START
+        tantque(i < 9)
+            ECRIRE "saisir un nombre"
+            LIRE --> tab 
+        fintantque
+        // faire la somme des éléments du tableau dans "somme"
+        Pour i <-- 0 à 8
+            //verifie que les valeurs son numerique:
+            si(tab[i] est un nombre)
+                lire somme + tab[i] --> somme
+            sinon
+                lire somme + 0 --> somme
+            finsi
+        i suivant
+        // Diviser la somme par la taille du tableau
+        somme = somme / 9
+        Ecrire tab et somme
+    FIN
+                </textarea>
+            </div>
+        </div>
+    </div>
+    <div class="exo_card jumbotron code">
+        <div class="code_content">
+            <div class="test_bouton">
+                <button onClick="ex_6_7()">
+                    Test JS
+                </button>
+                <button onClick="ex_6_7_jquery()">
+                    Test Jquery
+                </button>
+                <button onClick="show_php_result()">
+                    Test php
+                </button>
+            </div>
+            <div class="test_content">
+                <div>
+                    <h3 onClick="showJs()">TRADUCTION JAVASCRIPT</h3>
+                    <div id="result_6_7">
+
+                        
+                    </div>
+                    <textarea id="code_js">
+<?php include("code/text/js_6_7.txt");?>
+                    </textarea>
+                </div>
+                <div>
+                    <h3 onClick="showJquery()">TRADUCTION JQUERY</h3>
+                    <div id="result_6_7_jquery">
+                        
+                    </div>
+                    <textarea id="code_Jquery">
+<?php include("code/text/jquery_6_7.txt");?>
+                    </textarea>
+                </div>
+                <div>
+                    <h3 onClick=showPhp()>TRADUCTION pHP</h3>
+                        <div id="result_php" class="has_to_be_seen">
+                            <form name="phpForm" id="phpForm" method="POST" action="ex_6_7.php">
+                                <input type="text" name="note1" id="js_test1" placeholder= "saisir note n°1">
+                                <input type="text" name="note2" id="js_test2" placeholder= "saisir note n°2">
+                                <input type="text" name="note3" id="js_test3" placeholder= "saisir note n°3">
+                                <input type="text" name="note4" id="js_test4" placeholder= "saisir note n°4">
+                                <input type="text" name="note5" id="js_test5" placeholder= "saisir note n°5">
+                                <input type="text" name="note6" id="js_test6" placeholder= "saisir note n°6">
+                                <input type="text" name="note7" id="js_test7" placeholder= "saisir note n°7">
+                                <input type="text" name="note8" id="js_test8" placeholder= "saisir note n°8">
+                                <input type="text" name="note9" id="js_test9" placeholder= "saisir note n°9">
+                                <!-- <input type="hidden" name="tab_note" id="tab_note" 
+                                value="<?php if(isset($tab_note)){echo $tab_note;} ?>">
+                                <p> -->
+                                    <button type="submit" name="bouton">ajouter une note</button>
+                                </p>
+                            </form>
+                            
+                        </div>
+                        <p id="p_resultat_php">
+                            
+                                <?php if (isset($sMessage))  {  echo $sMessage;  } ?>
+                                <?php if(isset($moyenne)){ echo $moyenne; } ?>
+                        </p>
+                        <textarea id="code_php">
+<?php include("code/text/php_6_7.txt");?>
+                        </textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script></script>
+</body>
+</html>

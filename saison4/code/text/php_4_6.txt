@@ -1,0 +1,18 @@
+$c1=$_POST["c1"];
+$c2=$_POST["c2"];
+$c3=$_POST["c3"];
+$c4=$_POST["c4"];
+$other=$c2+$c3+$c4;
+    if(($c1+$other) == 100){
+        if($c1 > 50){
+            $sMessage="le toon c1 à gagné au premier tour";
+        }else if($c1 > ($other/2)){
+            $sMessage="le toon c1 est en position favorable pour le second tour";
+        }else if( $c1 < 12.5 || $c2 > 50 || $c3 > 50 || $c4 > 50 ){
+            $sMessage="Le toon c1 a perdu";
+        }else{
+            $sMessage="Le toon c1 est en position neutre ou défavorable pour le second tour";
+        }
+    }else{
+        $sMessage="les scores que vous avez saisie sont impossibles";
+    }

@@ -1,0 +1,16 @@
+<?php
+//deux methodes pour compter le nombre de char
+// METHODE 1 = convertir la chaine en tableau et renvoyer la longueur du tableau 
+// ----------> $tStr = str_split($_POST["saisie"]);
+//-----------> $sMessage = count($tStr);
+// METHODE 2 = utiliser la fonction str_len() qui de base compte le nombre de char dans une string
+//-----------> $sMessage = str_len($_POST["saisie"]);
+    if(isset($_POST["saisie"])){
+        $str = $_POST["saisie"];
+        $tStr = str_split($str);        
+        $sMessage = "Votre saisie compte ".count($tStr)." caractères";
+    }
+    
+include("ex_9_2.html"); 
+
+?>

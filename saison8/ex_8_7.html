@@ -1,0 +1,190 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LISALGO_SITE</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="../css/main.css">
+        <link rel="stylesheet" type="text/css" href="../body/prism.css"> 
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:300i,400,500,700,900" rel="stylesheet"> 
+        <!--script-->
+        <script type="text/javascript" src="../body/main.js"></script>
+        <script type="text/javascript" src="../body/prism.js"></script>
+        <script type="text/javascript" src="code/ex8.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </head> 
+<body>
+    <?php include("../body/header.php"); ?>
+    <div class="title">
+            <h3 class="display-3">Exercice 8.7 s8</h3>
+    </div>
+    <div id="theory">
+        <div class="exo_card jumbotron">
+            <div class="consigne">
+                <hr class="my-4">
+                <p class="lead">Écrire un algorithme de jeu de dames très simplifié.
+                        L’ordinateur demande à l’utilisateur dans quelle case se trouve son pion (quelle ligne, quelle colonne). 
+                        On met en place un contrôle de saisie afin de vérifier la validité des valeurs entrées.
+                        Ensuite, on demande à l’utilisateur quel mouvement il veut effectuer :
+                        <hr class="my-4"> 
+                            0 (en haut à gauche),<br> 
+                            1 (en haut à droite),<br>
+                            2 (en bas à gauche),<br>
+                            3 (en bas à droite).<br>
+                        <hr class="my-4">
+                        Si le mouvement est impossible (i.e. on sort du damier ), 
+                        on le signale à l’utilisateur et on s’arrête là . 
+                        Sinon, on déplace le pion et on affiche le damier résultant, 
+                        en affichant un « O » pour une case vide et un « X » pour la case où se trouve le pion.</p>
+                <hr class="my-4">
+            </div>
+        </div>
+        <div class="exocard jumbotron">
+            <div class="algo">
+                <h3>PSEUDO CODE</h3>
+                <textarea>
+Debut
+TABLEAU grille(10,10) ALPHAB 
+var li_init ENTIER
+var col_init ENTIER
+var choix ENTIER
+// recuperer la position initial 
+    ECRIRE "Saisir une ligne initiale"
+    LIRE --> li_init 
+    ECRIRE "Saisir une colone initiale"
+    LIRE --> col_init
+
+// verifier la validité de la positon initiale
+    SI ((li_init >= 0 && li_init <= 9) && (col_init >= 0 && col_init <= 9))
+        // recuperer le choix de mouvement utilisateur
+        ECRIRE "quel mouvement (o= haut/gauche, 1=haut/droite, 2=bas/gauche, 3=bas/droite) : "
+        LIRE  --> choix
+    SINON 
+        ECRIRE "cette case n'existe pas sur le damier"
+    FINSI
+
+// Creer grille si choix valide 
+        POUR i <-- 0 a 10 
+            grille[i] = NOUVEAU TABLEAU
+            POUR j <-- 0 à 10
+                grille[i][j] = "[O]";
+            ISUIVANT
+        ISUIVANT
+
+// traitzement du deplacement dans la creation de grille
+    SWITCH (choix){
+        cas 0:
+            SI (li_init == 0 || col_init == 0){
+                ECRIRE "Ce déplacement est impossible"
+            }SINON{
+                grille[li_init -1][col_init -1] = "[X]"
+            }
+            break
+        cas 1:
+            SI (li_init == 0 || col_init == 9){
+                ECRIRE "Ce déplacement est impossible"
+            }SINON{
+                grille[li_init -1][col_init +1] = "[X]"
+            }
+            break
+        cas 2:
+            SI (li_init == 9 || col_init == 0){
+                ECRIRE "Ce déplacement est impossible"
+            }SINON{
+                grille[li_init +1][col_init -1] = "[X]"
+            }
+            break
+        cas 3:
+            SI (li_init == 9 || col_init == 9){
+                ECRIRE "Ce déplacement est impossible"
+            }SINON{
+                grille[li_init +1][col_init +1] = "[X]"
+            }
+            break
+        default:
+            ECRIRE "Chez les dames on progresse qu'en diagonal, veuillez réessayer"
+    }
+// Afficher nouvelle grille 
+    POUR i <-- 0 à 10, i++ 
+        ECRIRE grille[i]+ "retour de ligne"
+    iSUIVANT
+    
+Fin
+                </textarea>
+            </div>
+        </div>
+    </div>
+    <div class="exo_card jumbotron code">
+        <div class="code_content">
+            <div class="test_bouton">
+                <button onClick="ex_8_7()">
+                    Test JS
+                </button>
+                <button onClick="ex_8_7_jquery()">
+                    Test Jquery
+                </button>
+                <button onClick="show_php_result()">
+                    Test php
+                </button>
+            </div>
+            <div class="test_content">
+                <div>
+                    <h3 onClick="showJs()">TRADUCTION JAVASCRIPT</h3>
+                    <div>
+                        <pre id="code_js"><code class="language-js"><?php include("code/text/js_8_7.txt");?></code></pre>
+                    </div>
+                    <div id="result_8_7">
+
+                    <p id="grille_initiale"></p>   
+                    </div>
+                    <div id="deplacement"></div>
+                    
+                </div>
+                <div>
+                    <h3 onClick="showJquery()">TRADUCTION JQUERY</h3>
+                    <div>
+                        <pre id="code_Jquery"><code class="language-js"><?php include("code/text/jquery_8_7.txt");?></code></pre>
+                    </div>
+                    <div id="result_8_7_jquery">
+                        <p id="grille_initiale_jquery"></p>    
+                    </div>
+                    
+                    <div id="nouvelle_grille">
+                        <p id="deplacement_jquery"></p>
+                    </div>
+                    
+                </div>
+                <div>
+                    <h3 onClick=showPhp()>TRADUCTION pHP</h3>
+                    <div>
+                        <pre id="code_php"><code class="language-php"><?php include("code/text/php_8_7.txt");?></code></pre>
+                    </div>
+                        <div id="result_php" class="has_to_be_seen">
+                                <form name="phpForm" id="phpForm" method="POST" action="ex_8_7.php">
+                                    
+                                    <input type="text" name="li_init" placeholder="saisir un numero de ligne pour la position initiale entre 0 et 9:">
+                                    <input type="text" name="col_init" placeholder="saisir un numero de colone pour la position initiale entre 0 et 9:">
+                                    <!--RECUPERATION grille-->
+                                    <input type="text" name="choix" placeholder= "saisir un n° de déplacement : ">
+                                    <button type="submit" name="bouton" value="true">calculer deplacement en PHP</button>
+                                </form>
+                        </div>
+                        <div id="p_resultat_php">
+                            <!---->
+                            <p><?php if(isset($sMessageGrilleInitiale)){ echo $sMessageGrilleInitiale; }?></p>
+                            <p><?php if(isset($sMessageTitreGrille)){ echo $sMessageTitreGrille; }?></p>
+                            <p><?php if(isset($sMessageNouvelleGrille)){ echo $sMessageNouvelleGrille; }?></p>
+
+                        </div>
+                        <textarea id="code_php">
+<?php include("code/text/php_8_7.txt");?>
+                        </textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script></script>
+</body>
+</html>

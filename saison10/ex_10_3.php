@@ -1,0 +1,29 @@
+<?php 
+if(isset($_POST["bouton"])){
+    // ouvrir le fichier en copiant son contenu dans une variable
+        $mon_fichier = fopen('carnet.txt', 'a+');
+    // compléter par des espaces a droite d'une variable
+        $nom_pad = str_pad($_POST['nom'], 20, " ");
+        $prenom_pad = str_pad($_POST['prenom'], 20, " ");
+        $email_pad = str_pad($_POST['mail'], 20, " ");
+    // écrire dans le fichier txt en concatenant les variables pour etre prise sur une ligne
+    // .PHP_EOL comme End Of Line permet le retour a la ligne
+        fwrite($mon_fichier, $nom_pad.$prenom_pad.$email_pad.PHP_EOL);
+        // remettre le curseur au debut du fichier avec 'rewind' 
+        rewind($mon_fichier);
+        // parcourir le fichier pour afficher les valeurs sur la page
+        $sMessage = "<pre>".fread($mon_fichier, filesize('carnet.txt'))."</pre>";
+    // fermer le fichier
+        fclose($mon_fichier);
+        error_log("Tout c'est bien passé, love");
+}
+
+include("ex_10_3.html"); 
+?>
+
+
+
+
+
+
+

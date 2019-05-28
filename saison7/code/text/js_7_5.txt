@@ -1,0 +1,18 @@
+function ex_7_5(){
+    var dico = ["Abricot", "banane", "carotte", "datte", "endive", "feves"];
+    console.log(dico);
+    var saisie = window.prompt("chercher un mot dans le dico nature : ").toLowerCase();
+    console.log(saisie);
+    var bCorrespondance = false;
+    for(var i = 0; i <= dico.length; i++){
+        console.log(dico[i]);
+        if(dico[i] == saisie){
+            document.getElementById("result_7_5").innerHTML="une correspondance en position n°"+i+" pour << "+dico[i]+" >>";
+            bCorrespondance = true;
+        }
+    }
+    if(bCorrespondance == false){
+        document.getElementById("result_7_5").innerHTML="aucune correspondance pour << "+saisie+" >>";
+    }
+    
+}

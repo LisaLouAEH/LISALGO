@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LISALGO_SITE</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="../css/main.css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:300i,400,500,700,900" rel="stylesheet"> 
+        <!--script-->
+        <script type="text/javascript" src="../body/main.js"></script>
+        <script type="text/javascript" src="code/ex7.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </head> 
+<body>
+    <?php include("../body/header.php"); ?>
+    <div class="title">
+            <h3 class="display-3">Exercice 7.5 s7</h3>
+    </div>
+    <div id="theory">
+        <div class="exo_card jumbotron">
+            <div class="consigne">
+                <p class="lead">Ecrivez l'algorithme qui recherche un mot saisi au clavier dans un dictionnaire. Le dictionnaire est supposé être codé
+                dans un tableau préalablement rempli et trié.</p>
+                <hr class="my-4">
+                <hr class="my-4">
+            </div>
+        </div>
+        <div class="exocard jumbotron">
+            <div class="algo">
+                <h3>PSEUDO CODE</h3>
+                <textarea>
+Debut
+var dico TABLEAU
+var saisie STRING
+var i ENTIER
+var bCorrespondance = False BOOLEEN 
+dico = ["Abricot", "banane", "carotte", "datte", "endive", "feves"]
+    POUR i = 0; i < TAILLE de dico; i++
+        si dico[i] == saisie
+            bCorrespondance = True
+            ECRIRE "Nous avons trouvé une correspondance en position" + i + "pour votre saisie = " + dico[i]
+        finsi
+    iSuivant
+    si bCorrespondance = False
+        ECRIRE "Votre saisie ne correspond a rien dans notre tableau"
+    finsi
+Fin
+                </textarea>
+            </div>
+        </div>
+    </div>
+    <div class="exo_card jumbotron code">
+        <div class="code_content">
+            <div class="test_bouton">
+                <button onClick="ex_7_5()">
+                    Test JS
+                </button>
+                <button onClick="ex_7_5_jquery()">
+                    Test Jquery
+                </button>
+                <button onClick="show_php_result()">
+                    Test php
+                </button>
+            </div>
+            <div class="test_content">
+                <div>
+                    <h3 onClick="showJs()">TRADUCTION JAVASCRIPT</h3>
+                    <div id="result_7_5">
+
+                        
+                    </div>
+                    <textarea id="code_js">
+<?php include("code/text/js_7_5.txt");?>
+                    </textarea>
+                </div>
+                <div>
+                    <h3 onClick="showJquery()">TRADUCTION JQUERY</h3>
+                    <div id="result_7_5_jquery">
+                        
+                    </div>
+                    <textarea id="code_Jquery">
+<?php include("code/text/jquery_7_5.txt");?>
+                    </textarea>
+                </div>
+                <div>
+                    <h3 onClick=showPhp()>TRADUCTION pHP</h3>
+                        <div id="result_php" class="has_to_be_seen">
+                                <form name="phpForm" id="phpForm" method="POST" action="ex_7_5.php">
+                                    <p>Mon dico de fruits et legumes <br>["Abricot", "banane", "carotte", "datte", "endive", "feve", "fraise", "haricot", "peche", "kiwi"]</p>
+                                    <input type="text" name="saisie" placeholder="search...">
+                                    <button type="submit" >envoyer</button>
+                                </form>
+                            
+                        </div>
+                        <p id="p_resultat_php">
+                            <!---->
+                            <?php if(isset($sMessage)){ echo $sMessage; }?>
+                        </p>
+                        <textarea id="code_php">
+<?php include("code/text/php_7_5.txt");?>
+                        </textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script></script>
+</body>
+</html>

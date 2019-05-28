@@ -1,0 +1,8 @@
+function ex_9_7_jquery(){
+    var saisie = parseInt(window.prompt("Veuillez saisir un entier pour savoir si il est pair: "));
+    if(saisie % 2 == 0){
+        $("#result_9_7_jquery").html("Ce nombre est pair");
+    }else{
+        $("#result_9_7_jquery").html("ce nombre est impair");
+    }
+}

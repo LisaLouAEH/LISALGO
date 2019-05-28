@@ -1,0 +1,7 @@
+function ex_6_1(){
+    var tab=[];
+    for(i=0; i< 7; i++){
+        tab.push(0);
+    }
+    document.getElementById("result_6_1").innerHTML=tab;
+}

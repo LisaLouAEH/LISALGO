@@ -1,0 +1,42 @@
+function ex_7_1_jquery(){
+var saisie = parseInt(window.prompt("Saisir un nombre a ranger dans le tableau ou 'v' pour arreter la saisie"));
+var tableau = [];
+var tBool = [];
+var bConsecutif;
+var i = 0;
+    while(saisie != "v"){
+        // ***ranger le tableau***
+        if(i == 0){
+            tableau[0] = saisie;
+        // si saisie < la dernière valeure saisie
+        }else if(saisie < tableau[i - 1]){
+            // tableau[j] prends la valeur la plus petite et décalle le reste
+            for(var j = 0; j < tableau.length; j++){
+                console.log("ici commence le retour en arriere j= "+j);
+                // tableau[j] prends la valeur la plus petite et décalle le reste
+                if(saisie <= tableau[j]){
+                    tableau.splice(j, 0, saisie);
+                    break;
+                }
+            } 
+            console.log("aprés tableau.splice(j, 0, saisie) tableau = [ "+tableau+"]<br>");
+        }else{
+            tableau.push(saisie);
+            console.log("------> tableau aprés ajout = "+tableau);
+        }
+        // ***verifier la consécutivité***
+        if(i > 0){
+            if(tableau[i-1] + 1 == tableau[i]){
+                tBool.push(true);
+                bConsecutif = "oui";
+            }else{
+                tBool.push(false);
+                bConsecutif = "non";
+            }
+            console.log("tableau de bool = "+tBool)
+        }
+        i++;
+        saisie = window.prompt("Saisir un nombre a ranger dans le tableau ou 'v' pour arreter la saisie");
+    }
+    $("#result_7_1_jquery").html(" | "+tableau+" | est consécutif ? reponse = "+bConsecutif);
+}

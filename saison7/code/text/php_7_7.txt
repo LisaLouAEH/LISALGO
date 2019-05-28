@@ -1,0 +1,40 @@
+$tableau1 = array(1, 3, 5, 7);
+$tableau2 = array(2, 4, 6, 8, 9);
+$tFusion = array();
+if(isset($_POST["bouton"])){
+    
+    if(count($tableau1) < count($tableau2)){
+        for($i = 0; $i < count($tableau1); $i++){
+            if($tableau1[$i] <= $tableau2[$i]){
+                array_push($tFusion, $tableau1[$i], $tableau2[$i]);
+            }else {
+                array_push($tFusion, $tableau2[$i], $tableau1[$i]);
+            }
+        }
+        for($i = count($tableau1); $i < count($tableau2); $i++){
+            array_push($tFusion, $tableau2[$i]);
+        }
+    }else if(count($tableau1) > count($tableau2)){
+        for($i = 0; $i < count($tableau2); $i++){
+            if($tableau1[$i] <= $tableau2[$i]){
+                array_push($tFusion, $tableau1[$i], $tableau2[$i]);
+            }else {
+                array_push($tFusion, $tableau2[$i], $tableau1[$i]);
+            }
+        }
+        for($i = count($tableau2); $i < count($tableau1); $i++){
+            array_push($tFusion, $tableau1[$i]);
+        }
+    }else{
+        for($i = 0; $i < count($tableau2); $i++){
+            if($tableau1[$i] <= $tableau2[$i]){
+                array_push($tFusion, $tableau1[$i], $tableau2[$i]);
+            }else {
+                array_push($tFusion, $tableau2[$i], $tableau1[$i]);
+            }
+        }
+    }
+    $tFusion = implode(" | ", $tFusion);
+    $sMessage = "le bouton marche et tFusion ressemble a ca: ".$tFusion;
+}
+include("ex_7_7.html");

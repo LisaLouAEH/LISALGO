@@ -1,0 +1,10 @@
+function ex_3_1(){
+    var user_nb = window.prompt("Saisir un nombre: ");
+    if(user_nb > 0){
+        document.getElementById("result_3_1").innerHTML = "votre nombre est positif!";
+    }else if(user_nb < 0){
+        document.getElementById("result_3_1").innerHTML = "votre nombre est negatif!";
+    }else{
+        document.getElementById("result_3_1").innerHTML = "Erreur de saisie. Votre maison s'auto-détruira dans 60jours !"
+    }
+}

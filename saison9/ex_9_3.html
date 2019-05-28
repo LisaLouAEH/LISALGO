@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LISALGO_SITE</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="../css/main.css">
+        <link rel="stylesheet" type="text/css" href="../body/prism.css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:300i,400,500,700,900" rel="stylesheet"> 
+        <!--script-->
+        <script type="text/javascript" src="../body/main.js"></script>
+        <script type="text/javascript" src="../body/prism.js"></script>
+        <script type="text/javascript" src="code/ex9.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </head> 
+<body>
+    <?php include("../body/header.php"); ?>
+    <div class="title">
+            <h3 class="display-3">Exercice 9.3 s9</h3>
+    </div>
+    <div id="theory">
+        <div class="exo_card jumbotron">
+            <div class="consigne">
+                <hr class="my-4">
+                <p class="lead">Ecrivez un algorithme qui demande une phrase à l’utilisateur et qui affiche à l’écran le nombre de mots de cette phrase. 
+                    On suppose que les mots ne sont séparés que par des espaces.</p>
+                <hr class="my-4">
+            </div>
+        </div>
+        <div class="exocard jumbotron">
+            <div class="algo">
+                <h3>PSEUDO CODE</h3>
+                <textarea>
+Debut
+
+Fin
+                </textarea>
+            </div>
+        </div>
+    </div>
+    <div class="exo_card jumbotron code">
+        <div class="code_content">
+            <div class="test_bouton">
+                <button onClick="ex_9_3()">
+                    Test JS
+                </button>
+                <button onClick="ex_9_3_jquery()">
+                    Test Jquery
+                </button>
+                <button onClick="show_php_result()">
+                    Test php
+                </button>
+            </div>
+            <div class="test_content">
+                <div>
+                    <h3 onClick="showJs()">TRADUCTION JAVASCRIPT</h3>
+                    <div id="result_9_3">
+
+                    <p id="grille_initiale"></p>   
+                    </div>
+                    <div id="deplacement"></div>
+                    <div>
+                        <pre id="code_js"><code class="language-js"><?php include("code/text/js_9_3.txt");?></code></pre>
+                    </div>
+                </div>
+                <div>
+                    <h3 onClick="showJquery()">TRADUCTION JQUERY</h3>
+                    <div id="result_9_3_jquery">
+                        <p id="grille_initiale_jquery"></p>    
+                    </div>
+                    
+                    <div id="nouvelle_grille">
+                        <p id="deplacement_jquery"></p>
+                    </div>
+                    <div>
+                        <pre id="code_Jquery"><code class="language-js"><?php include("code/text/jquery_9_3.txt");?></code></pre>
+                    </div>
+                </div>
+                <div>
+                    <h3 onClick=showPhp()>TRADUCTION pHP</h3>
+                    <div>
+                        <pre id="code_php"><code class="language-php"><?php include("code/text/php_9_3.txt");?></code></pre>
+                    </div>
+                        <div id="result_php" class="has_to_be_seen">
+                                <form name="phpForm" id="phpForm" method="POST" action="ex_9_3.php">
+                                    <input type="text" name="saisie" placeholder="saisir quelquechose ici:">
+                                    <button type="submit" name="bouton" value="true">PHP</button>
+                                </form>
+                        </div>
+                        <div id="p_resultat_php">
+                            <!---->
+                            <p><?php if(isset($sMessage)){ echo $sMessage; }?></p>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script></script>
+</body>
+</html>

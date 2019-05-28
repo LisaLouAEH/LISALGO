@@ -1,0 +1,1 @@
+<?php require "ex_6_1.html"; ?>

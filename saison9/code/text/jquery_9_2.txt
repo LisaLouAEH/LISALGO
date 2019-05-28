@@ -1,0 +1,7 @@
+
+function ex_9_2_jquery(){
+    var saisie_string = window.prompt("Veuillez saisir quelquechose : ");
+    var tab_str= saisie_string.split('');
+
+    $("#result_9_2_jquery").html("votre saisie compte "+tab_str.length+" caractères.");
+}

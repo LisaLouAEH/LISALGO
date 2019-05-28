@@ -1,0 +1,14 @@
+function ex_7_4(){
+    var valeur = window.prompt("saisir une valeur pour remplir le tableau ou taper 'v' pour arreter.");
+    var tableau = [];
+    while(valeur != "v"){
+        tableau.push(valeur);
+        valeur = window.prompt("autres valeur ou 'v' pour arreter.");
+    }
+    console.log("si le tableau est complet il ressemble a ca: "+tableau);
+    var index = parseInt(window.prompt("Veuillez saisir l'index de la valeur a effacer"));
+    if(index >= 0 && index <= tableau.length){
+        tableau.splice(index, 1);
+    }
+    document.getElementById("result_7_4").innerHTML="votre tableau sans "+index+" : "+tableau;
+}

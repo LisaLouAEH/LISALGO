@@ -1,0 +1,23 @@
+function ex_8_6_jquery(){
+    var iGrandNombre = 0;
+    // pour l'affichage
+    var iPostionLigne = 0;
+    var iPositionColone = 0;
+    // ----------------
+    var grille = [];
+    for(var ligne = 0; ligne < 12; ligne++){
+        grille[ligne] = [];
+        for(var colone = 0; colone < 8; colone++){
+            grille[ligne][colone] = randomInt(1, 10);
+            if(iGrandNombre < grille[ligne][colone]){
+                iGrandNombre = grille[ligne][colone];
+                iPostionLigne = ligne;
+                iPositionColone = colone;
+            }
+        }
+        console.log(grille)
+        $("#result_8_1_jquery").append(grille[ligne]+"<br>"); 
+    }
+    $("#grandNombre_jquery").html("<br> Le plus grand Nombre est : "+iGrandNombre+" en position grille["+iPostionLigne+"]["+iPositionColone+"]");
+    
+}

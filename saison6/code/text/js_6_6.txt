@@ -1,0 +1,10 @@
+function ex_6_6(){ 
+    var Suite = [];
+    Suite[0] = 1;
+    Suite[1] = 1;
+    for(var i = 2; i < 7; i++){
+        Suite[i] = Suite[i - 1] + Suite[i - 2] ;
+        console.log("dans ce tour de boucle Suite[i] vaut: "+Suite[i]);
+    }
+    document.getElementById("result_6_6").innerHTML=Suite;
+}

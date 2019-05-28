@@ -1,0 +1,140 @@
+/*+++++++GENERAL+++++++++*/
+body {
+    background-color: black;
+    color: #A3A1A8;
+    font-family: "Montserrat";
+}
+
+/*+++++++HEADER_NAV+++++++++*/
+.home_link {
+    font-family: Montserrat, 300;
+    font-size: 40px;
+    text-align: center;
+}
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+    margin: 0px;
+}
+nav button{
+    background-color: black;
+    color: #A3A1A8;
+    border: none;
+    padding: 5px;
+    font-size: 20px;
+}
+a, li {
+    text-decoration: none;
+    color: #A3A1A8;
+    list-style: none;
+    padding: 5px;
+}
+.menu_area {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+a:hover {
+    color: #FFF1A9;
+}
+
+/*+++++++EXO NAV+++++++++*/
+.ex_centering {
+    display: none;
+    flex-direction: column;
+    margin: 0px;
+    padding: 0px;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.exo_nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.exo_nav .button {
+    border: dashed #A3A1A8 1px;
+    padding: 5px;
+    margin: 3px;
+    background-color: black;
+}
+
+.exo_nav .button:hover{
+    border: solid 1px #FFF1A9;
+}
+
+/*++++++Page exo++++++++*/
+.title {
+    margin: 20px;
+    color: #FFF1A9;   
+}
+#theory {
+    margin: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.exo_card {
+    max-width: 500px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.lead {
+    text-align: center;
+}
+.code {
+    max-width: 80%;
+    background-color:black;
+    margin: 3% 22%;
+    padding: 30px;
+    border: solid 1px rgb(163, 161, 168);
+}
+.algo textarea{
+    width: 500px;
+    height: 250px;
+}
+.test_content h3:hover{
+    color: #FFF1A9;
+}
+.code_content {
+    display: flex;
+    flex-direction: column;
+}
+#code_Jquery, #code_js, #code_php {
+    display: none;
+}
+#result_php{
+    display: none;
+}
+.has_to_be_seen{
+    display: block !important;
+}
+.test_bouton button {
+    background-color: black;
+    color: #A3A1A8;
+    padding: 5px;
+    border: dashed 1px #A3A1A8;
+}
+button{
+    background-color: black;
+    color:#A3A1A8;
+    border: dashed 1px #A3A1A8;
+    padding: 5px;
+}
+button:hover{
+    border: solid 1px #FFF1A9;
+    color: #FFF1A9;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.form_title{
+    color: #FFF1A9;
+}

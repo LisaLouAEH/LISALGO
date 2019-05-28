@@ -1,0 +1,124 @@
+<!--permet de ne pas lancer le code php du formulaire tant que l'utilisateur n'a pas saisie encore de données-->
+<?php if(isset($_POST["tva_percent_php"])){
+    require "code/ex2_3.php";
+} 
+?>
+<!--||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LISALGO_SITE</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="../css/main.css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:300i,400,500,700,900" rel="stylesheet"> 
+        <!--script-->
+        <script type="text/javascript" src="../body/main.js"></script>
+        <script type="text/javascript" src="code/ex2_3.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </head> 
+<body>
+    <?php include("../body/header.php"); ?>
+    <div class="title">
+            <h3 class="display-3">Exercice 2.3 s1</h3>
+    </div>
+    <div id="theory">
+        <div class="exo_card jumbotron">
+            <div class="consigne">
+                <p class="lead">Ecrire un programme qui lit le prix HT d’un article, le nombre d’articles et le taux de TVA, 
+                    et qui fournit le prix total TTC correspondant. Faire en sorte que des libellés apparaissent clairement.</p>
+                <hr class="my-4">
+                <hr class="my-4">
+            </div>
+        </div>
+        <div class="exocard jumbotron">
+            <div class="algo">
+                <h3>PSEUDO CODE</h3>
+                <textarea>
+DEBUT
+VAR PRODUCT_HT, PRODUCT_NB, TVA_PERCENT, TOTAL.
+ECRIRE "Saisir le prix de votre produit hors-taxe: "
+LIRE --> PRODUCT_HT
+ECRIRE "Combien d'exemplaire de ce produit souhaitez vous ? "
+LIRE --> PRODUCT_HT
+ECRIRE "Saisir le taux de TVA en pourcentage: "
+LIRE --> TVA_PERCENT
+TOTAL <-- PRODUCT_NB * (PRODUCT_HT + (TVA_PERCENT * (PRODUCT_HT / 100)))
+ECRIRE "Le total de votre facture s'élève à " + TOTAL
+FIN
+                </textarea>
+            </div>
+        </div>
+    </div>
+    <div class="exo_card jumbotron code">
+        <div class="code_content">
+            <div class="test_bouton">
+                <button onClick="ex_2_3()">
+                    Test JS
+                </button>
+                <button onClick="ex_2_3_jquery()">
+                    Test Jquery
+                </button>
+                <button onClick="show_php_result()">
+                    Test php
+                </button>
+            </div>
+            <div class="test_content">
+                <div>
+                    <h3 onClick="showJs()">TRADUCTION JAVASCRIPT</h3>
+                    <div id="result_2_3">
+                        
+                    </div>
+                    <textarea id="code_js">
+<?php include("code/text/js_2_3.txt");?>
+                    </textarea>
+                </div>
+                <div>
+                    <h3 onClick="showJquery()">TRADUCTION JQUERY</h3>
+                    <div id="result_2_3_jquery">
+                        
+                    </div>
+                    <textarea id="code_Jquery">
+<?php include("code/text/jquery_2_3.txt");?>
+                    </textarea>
+                </div>
+                <div>
+                    <h3 onClick=showPhp()>TRADUCTION pHP</h3>
+                        <div id="result_php">
+                            <form name="phpForm" id="phpForm" method="POST" action="ex_2_3.php">
+                                    <p>
+                                        saisir le prix de votre produit hors-taxe : 
+                                        <input type="text" name="product_ht_php" id="product_ht_php">
+                                    </p>
+                                    <p>
+                                        Combien d'exemplaire de ce produit souhaitez vous ? 
+                                        <input type="text" name="product_nb_php" id="product_nb_php">
+                                    </p>
+                                    <p>
+                                        Saisir le taux de TVA en pourcentage: : 
+                                        <input type="text" name="tva_percent_php" id="tva_percent_php">
+                                    </p>
+                                    <p>
+                                        <button type="submit">RUN</button>
+                                    </p>
+                            </form>
+                            
+                        </div>
+                        <p id="p_resultat_php">
+                                <?php if (isset($sMessage))  {  echo $sMessage;  } ?>
+                        </p>
+                        <textarea id="code_php">
+<?php include("code/text/php_2_3.txt");?>
+                        </textarea>
+                </div>
+            </div>
+        </div>
+        <div id="pratique"
+            <form name="phpForm" id="phpForm" method="post" action="algo_js_form.php">
+            </form>
+        </div>
+    </div>
+    <script></script>
+</body>
+</html>

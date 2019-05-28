@@ -1,0 +1,22 @@
+function ex_5_5(){
+    var nb = parseInt(window.prompt("saisir un nombre pour en connaitre la table: "));
+    var multiplicator = 1;
+    var tab=[nb+" x "+multiplicator+" = "+(nb * multiplicator)+"<br>"];
+    for (let i = 0; i < 10; i++){
+        multiplicator++;
+        tab.push(nb+" x "+multiplicator+" = "+(nb * multiplicator)+"<br>");
+    } 
+    document.getElementById("result_5_5").innerHTML="table de "+ nb + ": <br>"+tab;
+}
+
+function ex_5_5_jquery(){
+    var nb = parseInt(window.prompt("saisir un nombre pour en connaitre la table: "));
+    var multiplicator = 1;
+    var tab=[nb+" x "+multiplicator+" = "+(nb * multiplicator)+"<br>"];
+    for (let i = 0; i < 10; i++){
+        multiplicator++;
+        tab.push(nb+" x "+multiplicator+" = "+(nb * multiplicator)+"<br>");
+    } 
+    $("#result_5_5_jquery").html("table de "+ nb + ": <br>"+tab);
+          
+}

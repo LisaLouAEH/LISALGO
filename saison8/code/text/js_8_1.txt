@@ -1,0 +1,10 @@
+function ex_8_1(){
+    var grille = [];
+    for(var ligne = 0; ligne < 6; ligne++){
+        grille[ligne] = [];
+        for(var colone = 0; colone < 13; colone++){
+            grille[ligne][colone] = 0;
+        }
+        document.getElementById("result_8_1").innerHTML += grille[ligne]+"<br>";
+    }
+}

@@ -1,0 +1,15 @@
+function ex_9_6(){
+    var saisie = window.prompt("Veuillez saisir une phrase a crypter: ");
+    // la string devient tableau de char
+    var tStr = saisie.split("");
+    var message_crypte = "";
+        for(var i = 0; i < saisie.length; i++){
+            console.log(saisie.charAt(i)+" = "+ saisie.charCodeAt(i));
+            // a chaque tour de boucle on stock la valeur ascii du char 
+            // dans le tableau de char pour effctuer l'operation +1
+            tStr[i] = saisie.charCodeAt(i) + 1;
+            // puis dans nouvelle variable on place l'equivalence char 
+            message_crypte += String.fromCharCode(tStr[i]);
+        };
+    document.getElementById("result_9_6").innerHTML="votre saisie d'origine : <br>"+saisie+" <br> une fois crypté : <br>"+message_crypte;
+}

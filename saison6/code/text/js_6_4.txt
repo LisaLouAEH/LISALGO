@@ -1,0 +1,7 @@
+function ex_6_4(){ 
+    var Nb = [];
+    for(var i = 0; i <= 5; i++){
+        Nb.push(i*i+"<br>");
+    }
+    document.getElementById("result_6_4").innerHTML=Nb;
+}

@@ -1,0 +1,12 @@
+function ex_9_5(){
+    var saisie_string = window.prompt("Veuillez saisir une phrase svp: ");
+    var tStr = saisie_string.split('');
+    var index = window.prompt("choisir un numero d'index compris entre 0 et "+ tStr.length);
+
+        for(var i = 0; i < tStr.length; i++){
+            if(i == index){
+                tStr.splice(index, 1);
+            }
+        };
+    document.getElementById("result_9_5").innerHTML="votre saisie corrigée : <br>"+tStr.join('');
+}

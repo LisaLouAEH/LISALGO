@@ -1,0 +1,19 @@
+function ex_6_7_jquery(){
+    // stoquer les valeurs dans un tableau
+    var i = 0;
+    var tab=[];
+    while(i < 9){
+        tab.push(parseInt(window.prompt("saisir une note: ")));
+        i++;
+    }
+    // Stocker la somme des valeurs dans une variable
+    var somme = 0;
+    for(i = 0; i < 9; i++){
+        somme = somme + tab[i];
+        console.log("tab de i = "+tab[i]);
+        console.log("somme = "+somme);
+    }
+    // Diviser la somme par la taille du tableau
+    var moyenne = somme / 9;
+    $("#result_6_7_jquery").html("la moyenne de <br>"+tab+" <br>est de <br>"+moyenne);
+}

@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LISALGO_SITE</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="../css/main.css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:300i,400,500,700,900" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../body/prism.css"> 
+        <!--script-->
+        <script type="text/javascript" src="../body/main.js"></script>
+        <script type="text/javascript" src="../body/prism.js"></script>
+        <script type="text/javascript" src="code/ex8.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </head> 
+<body>
+    <?php include("../body/header.php"); ?>
+    <div class="title">
+            <h3 class="display-3">Exercice 8.1 s8</h3>
+    </div>
+    <div id="theory">
+        <div class="exo_card jumbotron">
+            <div class="consigne">
+                <hr class="my-4">
+                <p class="lead">Écrivez un algorithme remplissant un tableau de 6 sur 13, avec des zéros.</p>
+                <hr class="my-4">
+            </div>
+        </div>
+        <div class="exocard jumbotron">
+            <div class="algo">
+                <h3>PSEUDO CODE</h3>
+                <textarea>
+Debut
+var grille TABLEAU 
+var ligne ENTIER
+    POUR ligne <-- 0 a 6 
+        grille[ligne] = NOUVEAU TABLEAU
+        POUR colone <-- 0 à 13
+            grille[ligne][colone] = 0;
+        ISUIVANT
+    ISUIVANT
+Fin
+                </textarea>
+            </div>
+        </div>
+    </div>
+    <div class="exo_card jumbotron code">
+        <div class="code_content">
+            <div class="test_bouton">
+                <button onClick="ex_8_1()">
+                    Test JS
+                </button>
+                <button onClick="ex_8_1_jquery()">
+                    Test Jquery
+                </button>
+                <button onClick="show_php_result()">
+                    Test php
+                </button>
+            </div>
+            <div class="test_content">
+                <div>
+                    <h3 onClick="showJs()">TRADUCTION JAVASCRIPT</h3>
+                    <div id="result_8_1">
+
+                        
+                    </div>
+                    <div>
+                        <pre id="code_js"><code class="language-js"><?php include("code/text/js_8_1.txt");?></code></pre>
+                    </div>
+                </div>
+                <div>
+                    <h3 onClick="showJquery()">TRADUCTION JQUERY</h3>
+                    <div id="result_8_1_jquery">
+                        
+                    </div>
+                    <div>
+                        <pre id="code_Jquery"><code class="language-js"><?php include("code/text/jquery_8_1.txt");?></code></pre>
+                    </div>
+                </div>
+                <div>
+                    <h3 onClick=showPhp()>TRADUCTION pHP</h3>
+                    <div>
+                        <pre id="code_php"><code class="language-php"><?php include("code/text/php_8_1.txt");?></code></pre>
+                    </div>
+                        <div id="result_php" class="has_to_be_seen">
+                                <form name="phpForm" id="phpForm" method="POST" action="ex_8_1.php">
+                                    <button type="submit" name="bouton" value="true">créer une grille en PHP</button>
+                                </form>
+                        </div>
+                        <p id="p_resultat_php">
+                            <!---->
+                            <?php if(isset($sMessage)){ echo $sMessage; }?>
+                        </p>
+                        
+                </div>
+            </div>
+        </div>
+    </div>
+    <script></script>
+</body>
+</html>

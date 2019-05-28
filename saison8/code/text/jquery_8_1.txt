@@ -1,0 +1,11 @@
+function ex_8_1_jquery(){
+    var grille = [];
+    for(var ligne = 0; ligne < 6; ligne++){
+        grille[ligne] = [];
+        for(var colone = 0; colone < 13; colone++){
+            grille[ligne][colone] = 0;
+        }
+        // .append() --> permet de concatener les valeurs dans une meme chaines de char pour l'affichage
+        $("#result_8_1_jquery").append(grille[ligne]+"<br>");
+    }
+}

@@ -1,0 +1,5 @@
+function ex_2_1_jquery(){
+    var Val = 231;
+    var Double = Val * 2;
+    $("#result_2_1_jquery").html('La valeur de Val est '+Val+'<br>'+'La valeur de Double est '+Double);
+}

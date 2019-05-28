@@ -1,0 +1,7 @@
+function ex_6_2(){
+    // var string = String.fromCharCode(65,69,73,79,85);
+    // console.log(string);
+    var a = "a ou A <br>", e = "e ou E <br>", i = "i ou I <br>", o = "o ou O <br>", u = "u ou U <br>", y = "y ou Y <br>";
+    var tab = [a, e, i, o, u, y];
+    document.getElementById("result_6_2").innerHTML=tab;
+}

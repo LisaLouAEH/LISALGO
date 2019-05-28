@@ -1,0 +1,7 @@
+function ex_6_4_jquery(){
+    var Nb = [];
+    for(var i = 0; i <= 5; i++){
+        Nb.push(i*i+"<br>");
+    }
+    $("#result_6_4_jquery").html(Nb);
+}

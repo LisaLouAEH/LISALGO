@@ -1,0 +1,19 @@
+function ex_4_5(){
+    var age = parseInt(window.prompt("saisir l\'age du toon: "));
+    var genre = window.prompt("saisir le genre ('h' ou 'f') du toon: ");  
+    if(((genre = "h") && (age > 20)) || (genre = "f") && ((age >= 18) && (age <= 35))){
+        document.getElementById("result_4_5").innerHTML="Ce toon est imposable à Toon\'s city";
+    }else{
+        document.getElementById("result_4_5").innerHTML="Ce toon n\'est pas imposable à Toon\'s city";
+    }
+}
+
+function ex_4_5_jquery(){
+    var age = parseInt(window.prompt("saisir l\'age du toon: "));
+    var genre = window.prompt("saisir le genre ('h' ou 'f') du toon: ");  
+    if(((genre = "h") && (age > 20)) || (genre = "f") && ((age >= 18) && (age <= 35))){
+        $("#result_4_5_jquery").html("Ce toon est imposable à Toon\'s city");
+    }else{
+        $("#result_4_5_jquery").html("Ce toon n\'est pas imposable à Toon\'s city");
+    }
+}

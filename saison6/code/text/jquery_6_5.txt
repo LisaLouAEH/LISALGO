@@ -1,0 +1,10 @@
+// traduction de la version simplifée
+function ex_6_5_jquery(){
+    var N = [];
+    N[0] = 1 + "<br>";
+    for(var i = 3; i <= 12; i+= 2){
+        N[i] = i + "<br>" ;
+        console.log(N);
+    }
+    $("#result_6_5_jquery").html(N);
+}

@@ -1,0 +1,122 @@
+<!--permet de ne pas lancer le code php du formulaire tant que l'utilisateur n'a pas saisie encore de données-->
+<?php if(isset($_POST["user_nb_bis"])){
+    require "code/ex3_2.php";
+} 
+?>
+<!--||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LISALGO_SITE</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="../css/main.css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:300i,400,500,700,900" rel="stylesheet"> 
+        <!--script-->
+        <script type="text/javascript" src="../body/main.js"></script>
+        <script type="text/javascript" src="code/ex3_2.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </head> 
+<body>
+    <?php include("../body/header.php"); ?>
+    <div class="title">
+            <h3 class="display-3">Exercice 3.2 s3</h3>
+    </div>
+    <div id="theory">
+        <div class="exo_card jumbotron">
+            <div class="consigne">
+                <p class="lead">Ecrire un algorithme qui demande deux nombres à l’utilisateur et 
+                    l’informe ensuite si leur produit est négatif ou
+                    positif (on laisse de côté le cas où le produit est nul). 
+                    Attention toutefois : on ne doit pas calculer le produit des deux nombres.</p>
+                <hr class="my-4">
+                <hr class="my-4">
+            </div>
+        </div>
+        <div class="exocard jumbotron">
+            <div class="algo">
+                <h3>PSEUDO CODE</h3>
+                <textarea>
+DEBUT
+VAR user_nb
+VAR user_nb_bis
+ECRIRE "Saisir un nombre: "
+LIRE --> user_nb
+ECRIRE "Saisir un nombre: "
+LIRE --> user_nb_bis
+SI (user_nb > 0 && user_nb_bis > 0) || (user_nb < 0 && user_nb_bis < 0)
+    ECRIRE "Irma prédit que le produit de vos deux nombres est positif "
+SINONSI (user_nb > 0 && user_nb_bis < 0) || (user_nb < 0 && user_nb_bis > 0)
+    ECRIRE "Irma prédit que le produit de vos deux nombres est négatif "
+SINON
+    ECRIRE "Erreur votre saisie est soit null soit non-nombre"
+FINSI
+FIN
+                </textarea>
+            </div>
+        </div>
+    </div>
+    <div class="exo_card jumbotron code">
+        <div class="code_content">
+            <div class="test_bouton">
+                <button onClick="ex_3_2()">
+                    Test JS
+                </button>
+                <button onClick="ex_3_2_jquery()">
+                    Test Jquery
+                </button>
+                <button onClick="show_php_result()">
+                    Test php
+                </button>
+            </div>
+            <div class="test_content">
+                <div>
+                    <h3 onClick="showJs()">TRADUCTION JAVASCRIPT</h3>
+                    <div id="result_3_2">
+                        
+                    </div>
+                    <textarea id="code_js">
+<?php include("code/text/js_3_2.txt");?>
+                    </textarea>
+                </div>
+                <div>
+                    <h3 onClick="showJquery()">TRADUCTION JQUERY</h3>
+                    <div id="result_3_2_jquery">
+                        
+                    </div>
+                    <textarea id="code_Jquery">
+<?php include("code/text/jquery_3_2.txt");?>
+                    </textarea>
+                </div>
+                <div>
+                    <h3 onClick=showPhp()>TRADUCTION pHP</h3>
+                        <div id="result_php">
+                            <form name="phpForm" id="phpForm" method="POST" action="ex_3_2.php">
+                                    <p>
+                                        saisir un nombre : 
+                                        <input type="text" name="user_nb" id="user_nb">
+                                    </p>
+                                    <p>
+                                        saisir un deuxieme nombre : 
+                                        <input type="text" name="user_nb_bis" id="user_nb_bis">
+                                    </p>
+                                    <p>
+                                        <button type="submit">RUN</button>
+                                    </p>
+                            </form>
+                            
+                        </div>
+                        <p id="p_resultat_php">
+                                <?php if (isset($sMessage))  {  echo $sMessage;  } ?>
+                        </p>
+                        <textarea id="code_php">
+<?php include("code/text/php_3_2.txt");?>
+                        </textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script></script>
+</body>
+</html>

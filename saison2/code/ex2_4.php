@@ -1,0 +1,19 @@
+<?php
+    $A = " Belle marquise, ";
+    $B = " vos beau yeux, ";
+    $C = " me font mourir, ";
+    $D = " d'amour ";
+    $i = 0;
+    while ($i <= 3)
+    {
+        echo $A.$B.$C.$D.("<br>");
+        $Temp = $A;
+        $A = $B;
+        $B = $C;
+        $C = $D;
+        $D = $Temp;
+        $i = $i + 1;
+    }
+?>
+
+

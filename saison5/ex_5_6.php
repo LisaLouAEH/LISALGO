@@ -1,0 +1,1 @@
+<?php include("ex_5_6.html"); ?>

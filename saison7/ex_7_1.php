@@ -5,12 +5,9 @@ $bConsecutif = "Oui";
 $input_saisie = "<input type=text name='val' placeholder='Saisir la première valeur'>";
 // pour saisir la valeur suivante, REMPLACE $input_saisie
 $input_val_suivante = '<input type="text" name="input_val_suivante" placeholder="Saisir une autre valeur ou --> v pour arreter.">';
-
     if(isset($_POST["sTableau"])){
-
         // NB --> quand tval vient du HTML c'est au format string !!!
         $tTableau=explode(" ", $_POST["sTableau"]);
-
         // complete tableau
         if(isset($_POST["input_val_suivante"])){
             if($_POST["input_val_suivante"] != 'v'){
@@ -38,7 +35,6 @@ $input_val_suivante = '<input type="text" name="input_val_suivante" placeholder=
         $sTableau=implode(" ", $tTableau);
         $sBool = implode(" | ", $tBool );
         $sMessage = $sTableau."<br> tableau bool = [".$sBool."]"."<br> Consécutif ? --> ".$bConsecutif;
-
     }
     if(isset($_POST["val"])){
         // verifie qu'on ne veux pas cesser la saisie
